@@ -1,23 +1,23 @@
 generate_next_convo_line_v1.txt
 
-Variables: 
-!<INPUT 0>! -- agent name
-!<INPUT 1>! -- agent iss
-!<INPUT 2>! -- agent name
-!<INPUT 3>! -- interlocutor name and description
-!<INPUT 4>! -- prev convo
-!<INPUT 5>! -- retrieve summary
-!<INPUT 6>! -- agent name
+變量: 
+!<INPUT 0>! -- 代理人姓名
+!<INPUT 1>! -- 代理人iss
+!<INPUT 2>! -- 代理人姓名
+!<INPUT 3>! -- 對話者的姓名及描述
+!<INPUT 4>! -- 先前的對話
+!<INPUT 5>! -- 獲取摘要
+!<INPUT 6>! -- 代理人姓名
 
 <commentblockmarker>###</commentblockmarker>
-Here is some basic information about !<INPUT 0>!.
+以下是關於!<INPUT 0>!的一些基本信息。
 !<INPUT 1>!
 
 === 
-Following is a conversation between !<INPUT 2>! and !<INPUT 3>!. 
+以下是!<INPUT 2>!和!<INPUT 3>!之間的對話。
 
 !<INPUT 4>!
 
-(Note -- This is the only information that !<INPUT 5>! has: !<INPUT 6>!)
+（注意 -- 這是!<INPUT 5>!擁有的唯一信息: !<INPUT 6>!)
 
 !<INPUT 7>!: "

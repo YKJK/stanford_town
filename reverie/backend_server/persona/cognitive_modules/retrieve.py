@@ -223,7 +223,7 @@ def new_retrieve(persona, focal_points, n_count=30):
     # You could also imagine getting the raw conversation, but for now. 
     nodes = [[i.last_accessed, i]
               for i in persona.a_mem.seq_event + persona.a_mem.seq_thought
-              if "idle" not in i.embedding_key]
+              if "空閒" not in i.embedding_key]
     nodes = sorted(nodes, key=lambda x: x[0])
     nodes = [i for created, i in nodes]
 

@@ -1,12 +1,12 @@
 insight_and_evidence_v1.txt
 
-Variables: 
-!<INPUT 0>! -- Numbered list of event/thought statements
-!<INPUT 1>! -- target persona name or "the conversation"
+變量: 
+!<INPUT 0>! -- 編號列出的事件/想法語句
+!<INPUT 1>! -- 目標人物名稱或"對話"
 
 <commentblockmarker>###</commentblockmarker>
-Input:
+輸入:
 !<INPUT 0>!
 
-What !<INPUT 1>! high-level insights can you infer from the above statements? (example format: insight (because of 1, 5, 3))
+從以上語句中，您能推斷出!<INPUT 1>!的哪些優先見解？（範例格式：見解（由於1,5,3））
 1.

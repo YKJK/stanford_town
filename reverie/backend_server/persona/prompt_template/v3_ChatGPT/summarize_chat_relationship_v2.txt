@@ -1,12 +1,12 @@
 summarize_chat_relationship_v2.txt
 
-Variables: 
-!<INPUT 0>! -- Statements
-!<INPUT 1>! -- curr persona name
-!<INPUT 2>! -- target_persona.scratch.name
+變量: 
+!<INPUT 0>! -- 陳述
+!<INPUT 1>! -- 當前人物的名字
+!<INPUT 2>! -- 目標人物的名字
 
 <commentblockmarker>###</commentblockmarker>
-[Statements]
+[陳述]
 !<INPUT 0>!
 
-Based on the statements above, What's the relationship between !<INPUT 1>! and !<INPUT 2>!? Answer in one word from {intimate,family,friend,acquaintance,stranger}:
+根據以上的陳述，總結一下!<INPUT 1>!和!<INPUT 2>!的關係。他們對彼此的感覺或了解是什麼?

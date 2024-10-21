@@ -1,45 +1,45 @@
 iterative_convo_v1.txt
 
-Variables: 
-!<INPUT 0>! -- persona ISS
-!<INPUT 1>! -- persona name
-!<INPUT 2>! -- retrieved memory
-!<INPUT 3>! -- past context
-!<INPUT 4>! -- current location
-!<INPUT 5>! -- current context
-!<INPUT 6>! -- persona name
-!<INPUT 7>! -- target persona name
-!<INPUT 8>! -- curr convo
-!<INPUT 9>! -- persona name
-!<INPUT 10>! -- target persona name
-!<INPUT 11>! -- persona name
-!<INPUT 12>! -- persona name
-!<INPUT 13>! -- persona name
+變量: 
+!<INPUT 0>! -- 人物 ISS
+!<INPUT 1>! -- 人物名稱
+!<INPUT 2>! -- 獲取的記憶
+!<INPUT 3>! -- 過去的情境
+!<INPUT 4>! -- 當前位置
+!<INPUT 5>! -- 當前情境
+!<INPUT 6>! -- 人物名稱
+!<INPUT 7>! -- 目標人物名稱
+!<INPUT 8>! -- 當前對話
+!<INPUT 9>! -- 人物名稱
+!<INPUT 10>! -- 目標人物名稱
+!<INPUT 11>! -- 人物名稱
+!<INPUT 12>! -- 人物名稱
+!<INPUT 13>! -- 人物名稱
 <commentblockmarker>###</commentblockmarker>
-Context for the task: 
+任務的上下文: 
 
-PART 1. 
+第一部分. 
 !<INPUT 0>!
 
-Here is the memory that is in !<INPUT 1>!'s head: 
+這是在!<INPUT 1>!的頭腦中的記憶: 
 !<INPUT 2>!
 
-PART 2. 
-Past Context: 
+第二部分.
+過去的情境: 
 !<INPUT 3>!
 
-Current Location: !<INPUT 4>!
+當前位置: !<INPUT 4>!
 
-Current Context: 
+當前情境: 
 !<INPUT 5>!
 
-!<INPUT 6>! and !<INPUT 7>! are chatting. Here is their conversation so far: 
+!<INPUT 6>!和!<INPUT 7>!正在聊天。這是他們到目前為止的對話: 
 !<INPUT 8>!
 
 ---
-Task: Given the above, what should !<INPUT 9>! say to !<INPUT 10>! next in the conversation? And did it end the conversation?
-Output in the following json format: 
+任務: 根據上述情況，所有對話均為中文，!<INPUT 9>!接下來在對話中應該對!<INPUT 10>!說什麼？對話是否在!<INPUT 13>!的發言結束？
+
+輸出格式: 輸出為以下格式的json: 
 {
-"!<INPUT 11>!": "<!<INPUT 12>!'s utterance>",
-"Did the conversation end with !<INPUT 13>!'s utterance?": "<json Boolean>"
-}
+"!<INPUT 11>!": "<!<INPUT 12>!的發言>",
+"!<INPUT 13>!的發言是否結束了對話?": "<json 布爾值>"

@@ -1,12 +1,12 @@
 wake_up_hour_v1.txt
 
-Variables: 
-!<INPUT 0>! -- Identity Stable Set
-!<INPUT 1>! -- Lifestyle
-!<INPUT 2>! -- Persona first names
+變量: 
+!<INPUT 0>! -- 穩定識別集
+!<INPUT 1>! -- 生活方式
+!<INPUT 2>! -- 人物的名字
 
 <commentblockmarker>###</commentblockmarker>
 !<INPUT 0>!
 
-In general, !<INPUT 1>!
-!<INPUT 2>!'s wake up hour:
+一般來說，!<INPUT 1>!
+!<INPUT 2>!的起床時間：

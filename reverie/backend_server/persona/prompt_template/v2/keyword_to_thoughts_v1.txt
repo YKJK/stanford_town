@@ -1,12 +1,12 @@
 keyword_to_thoughts_v1.txt
 
-Variables: 
-!<INPUT 0>! -- current keyword
-!<INPUT 1>! -- events/thoughts list
-!<INPUT 2>! -- persona name
+變量: 
+!<INPUT 0>! -- 當前關鍵詞
+!<INPUT 1>! -- 事件/思考列表
+!<INPUT 2>! -- 角色姓名
 
 <commentblockmarker>###</commentblockmarker>
-The following events/thoughts happened about "!<INPUT 0>!". 
+以下事件/思考都發生在"!<INPUT 0>!"上。
 !<INPUT 1>!
 
-Here is what !<INPUT 2>! thinks about these events/thoughts in one sentence. The sentence needs to be in third person:
+這是 !<INPUT 2>! 對於這些事件/思考的一句子思考。這句話需要用第三人稱來表示:

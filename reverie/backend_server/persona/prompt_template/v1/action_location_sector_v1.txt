@@ -1,34 +1,34 @@
-Variables: 
-!<INPUT 0>! -- Persona name
-!<INPUT 1>! -- Maze all possible sectors
-!<INPUT 2>! -- Persona name
-!<INPUT 3>! -- Persona living sector
-!<INPUT 4>! -- Persona living sector arenas
-!<INPUT 5>! -- Persona name
-!<INPUT 6>! -- Persona current sector
-!<INPUT 7>! -- Persona current sector arenas
-!<INPUT 8>! -- curr action description
-!<INPUT 9>! -- Persona name
+變量: 
+!<INPUT 0>! -- 人物名稱
+!<INPUT 1>! -- 迷宮的所有可能區域
+!<INPUT 2>! -- 人物名字
+!<INPUT 3>! -- 人物所在的區域
+!<INPUT 4>! -- 人物所在區域的場所
+!<INPUT 5>! -- 人物名字
+!<INPUT 6>! -- 人物當下所在的區域
+!<INPUT 7>! -- 人物當下所在區域的場所
+!<INPUT 8>! -- 當下動作描述
+!<INPUT 9>! -- 人物名字
 <commentblockmarker>###</commentblockmarker>
-Task -- choose an appropriate area  from the area options for a task at hand. 
+任務 - 從區域選項中選擇一個適合手頭任務的地點。 
 
-Sam Kim lives in {Sam Kim's house} that has Sam Kim's room, bathroom, kitchen.
-Sam Kim is currently in {Sam Kim's house} that has Sam Kim's room, bathroom, kitchen. 
-Area options: {Sam Kim's house, The Rose and Crown Pub, Hobbs Cafe, Oak Hill College, Johnson Park, Harvey Oak Supply Store, The Willows Market and Pharmacy}.
-* Stay in the current area if the activity can be done there. Only go out if the activity needs to take place in another place.
-* Must be one of the "Area options," verbatim.
-For taking a walk, Sam Kim should go to the following area: {Johnson Park}
+Sam Kim住在{Sam Kim的房子}，那裡有 Sam Kim的房間, 浴室, 廚房。
+Sam Kim當前在{Sam Kim的房子}，那裡有 Sam Kim的房間, 浴室, 廚房。
+區域選項：{Sam Kim的房子, 玫瑰冕酒吧, 霍布斯咖啡店, 橡樹山學院, 約翰遜公園, 哈維橡樹供應店, 柳樹市場和藥房}。
+* 如果可以在當前區域進行活動，就留在當前區域。只有當活動需要在其他地方進行時，才出門。
+* 必須是"區域選項"中的一個，一字不差。
+對於散步，Sam Kim應去以下區域：{約翰遜公園}
 ---
-Jane Anderson lives in {Oak Hill College Student Dormatory} that has Jane Anderson's room.
-Jane Anderson is currently in {Oak Hill College} that has a classroom, library
-Area options: {Oak Hill College Student Dormatory, The Rose and Crown Pub, Hobbs Cafe, Oak Hill College, Johnson Park, Harvey Oak Supply Store, The Willows Market and Pharmacy}. 
-* Stay in the current area if the activity can be done there. Only go out if the activity needs to take place in another place.
-* Must be one of the "Area options," verbatim.
-For eating dinner, Jane Anderson should go to the following area: {Hobbs Cafe}
+Jane Anderson住在{橡樹山學院宿舍}，那裡有 Jane Anderson的房間。
+Jane Anderson當前在{橡樹山學院}，那里有 教室, 圖書館。
+區域選項：{橡樹山學院宿舍, 玫瑰冕酒吧, 霍布斯咖啡店, 橡樹山學院, 約翰遜公園, 哈維橡樹供應店, 柳樹市場和藥房}。
+* 如果可以在當前區域進行活動，就留在當下區域。只有當活動需要在其他地方進行時，才出門。
+* 必須是"區域選項"中的一個，一字不差。
+對於吃晚餐，Jane Anderson應去以下區域：{霍布斯咖啡店}
 ---
-!<INPUT 0>! lives in {!<INPUT 1>!} that has !<INPUT 2>!.
-!<INPUT 3>! is currently in {!<INPUT 4>!} that has !<INPUT 5>!. !<INPUT 6>!
-Area options: {!<INPUT 7>!}. 
-* Stay in the current area if the activity can be done there. Only go out if the activity needs to take place in another place.
-* Must be one of the "Area options," verbatim.
-!<INPUT 8>! is !<INPUT 9>!. For !<INPUT 10>!, !<INPUT 11>! should go to the following area: {
+!<INPUT 0>!住在{!<INPUT 1>!}，那裡有 {!<INPUT 2>!}。
+!<INPUT 3>!當前在{!<INPUT 4>!}，那裡有 {!<INPUT 5>!}。!<INPUT 6>!
+區域選項：{!<INPUT 7>!}。
+* 如果可以在當下區域進行活動，就留在當下區域。只有當活動需要在其他地方進行時，才出門。
+* 必須是"區域選項"中的一個，一字不差。
+!<INPUT 8>!在!<INPUT 9>!。為了{!<INPUT 10>!}，!<INPUT 11>!應該去以下區域：{

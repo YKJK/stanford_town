@@ -126,15 +126,17 @@ def run_gpt_prompt_daily_plan(persona,
     except: 
       return False
     return True
-
+  # 行程表規劃
   def get_fail_safe(): 
-    fs = ['wake up and complete the morning routine at 6:00 am', 
-          'eat breakfast at 7:00 am', 
-          'read a book from 8:00 am to 12:00 pm', 
-          'have lunch at 12:00 pm', 
-          'take a nap from 1:00 pm to 4:00 pm', 
-          'relax and watch TV from 7:00 pm to 8:00 pm', 
-          'go to bed at 11:00 pm'] 
+    fs = ['6:00 am起床並且完成早上的日常行程', 
+          '7:00 am吃早餐', 
+          '8:00 am 到 12:00 pm閱讀書籍', 
+          '12:00 pm吃午餐', 
+          '1:00 pm 到 2:00 pm午休',
+          '3:00 pm 到 4:00 pm運動',
+          '6:00 pm吃晚餐',
+          '7:00 pm to 8:00 pm放鬆和看電視', 
+          '11:00 pm洗澡並上床睡覺'] 
     return fs
 
 
@@ -148,7 +150,7 @@ def run_gpt_prompt_daily_plan(persona,
 
   output = safe_generate_response(prompt, gpt_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
-  output = ([f"wake up and complete the morning routine at {wake_up_hour}:00 am"]
+  output = ([f"在 {wake_up_hour}:00 am起床並且完成早上的日常行程"]
               + output)
 
   if debug or verbose: 
@@ -178,8 +180,8 @@ def run_gpt_prompt_generate_hourly_schedule(persona,
       schedule_format += f" Activity: [Fill in]\n"
     schedule_format = schedule_format[:-1]
 
-    intermission_str = f"Here the originally intended hourly breakdown of"
-    intermission_str += f" {persona.scratch.get_str_firstname()}'s schedule today:\n"
+    intermission_str = f"以下的時間是按照小時進行設定"
+    intermission_str += f" {persona.scratch.get_str_firstname()}'s 今日的日程表:\n"
     for count, i in enumerate(persona.scratch.daily_req): 
       intermission_str += f"{str(count+1)}) {i}, "
     intermission_str = intermission_str[:-2]
@@ -194,7 +196,7 @@ def run_gpt_prompt_generate_hourly_schedule(persona,
         prior_schedule += f" {persona.scratch.get_str_curr_date_str()} --"
         prior_schedule += f" {hour_str[count]}] Activity:"
         prior_schedule += f" {persona.scratch.get_str_firstname()}"
-        prior_schedule += f" is {i}\n"
+        prior_schedule += f"在{i}\n"
 
     prompt_ending = f"[(ID:{get_random_alphanumeric()})"
     prompt_ending += f" {persona.scratch.get_str_curr_date_str()}"
@@ -204,10 +206,10 @@ def run_gpt_prompt_generate_hourly_schedule(persona,
     prompt_input = []
     prompt_input += [schedule_format]#输出格式
     prompt_input += [persona.scratch.get_str_iss()]#人物介绍
-    prompt_input += [intermission_str]#今天大致日程
-    prompt_input += [prior_schedule_inst]#如何填写的说明
-    prompt_input += [prior_schedule]#6点前的sample时间表
-    prompt_input += [prompt_ending]#结尾的接续
+    prompt_input += [intermission_str]#今日行程
+    prompt_input += [prior_schedule_inst]#如何填寫的說明
+    prompt_input += [prior_schedule]#6點前的sample時間表
+    prompt_input += [prompt_ending]#结尾的接續
 
     return prompt_input
 
@@ -223,7 +225,7 @@ def run_gpt_prompt_generate_hourly_schedule(persona,
     return True
 
   def get_fail_safe(): 
-    fs = "asleep"
+    fs = "睡覺"
     return fs
 
   #max_tokens50是一个小时的
@@ -286,8 +288,8 @@ def run_gpt_prompt_task_decomp(persona,
     print (persona.scratch.f_daily_schedule_hourly_org)
     print (all_indices)
 
-    summ_str = f'Today is {persona.scratch.curr_time.strftime("%B %d, %Y")}. '
-    summ_str += f'From '
+    summ_str = f'今日為{persona.scratch.curr_time.strftime("%B %d, %Y")}. '
+    summ_str += f'從'
     for index in all_indices: 
       print ("index", index)
       if index < len(persona.scratch.f_daily_schedule_hourly_org): 
@@ -333,7 +335,7 @@ def run_gpt_prompt_task_decomp(persona,
       else: 
         _cr += [i]
     for count, i in enumerate(_cr): 
-      k = [j.strip() for j in i.split("(duration in minutes:")]
+      k = [j.strip() for j in i.split("(執行時間，分鐘:")]
       task = k[0]
       if len(task) == 0:
         print("---->task len is 0")
@@ -344,10 +346,10 @@ def run_gpt_prompt_task_decomp(persona,
       if len(k) > 1:
         duration = int(k[1].split(",")[0].strip())
       else:
-        duration = 0  # 或者根据实际情况设置默认值
+        duration = 0  # 根據實際狀況設定你的默認值
       cr += [[task, duration]]
 
-    total_expected_min = int(prompt.split("(total duration in minutes")[-1]
+    total_expected_min = int(prompt.split("(總執行時間，分鐘")[-1]
                                    .split("):")[0].strip())
     
     # TODO -- now, you need to make sure that this is the same as the sum of 
@@ -392,7 +394,7 @@ def run_gpt_prompt_task_decomp(persona,
     return gpt_response
 
   def get_fail_safe(): 
-    fs = ["asleep"]
+    fs = ["睡覺"]
     return fs
 
   gpt_param = {"engine": "text-davinci-003", "max_tokens": 1000, 
@@ -491,7 +493,7 @@ def run_gpt_prompt_action_sector(action_description,
     curr = accessible_sector_str.split(", ")
     fin_accessible_sectors = []
     for i in curr: 
-      if "'s house" in i: 
+      if "的房屋" in i: 
         if persona.scratch.last_name in i: 
           fin_accessible_sectors += [i]
       else: 
@@ -535,7 +537,7 @@ def run_gpt_prompt_action_sector(action_description,
     return True
   
   def get_fail_safe(): 
-    fs = ("kitchen")
+    fs = ("廚房")
     return fs
 
 
@@ -611,7 +613,7 @@ def run_gpt_prompt_action_arena(action_description,
     curr = accessible_arena_str.split(", ")
     fin_accessible_arenas = []
     for i in curr: 
-      if "'s room" in i: 
+      if "的房間" in i: 
         if persona.scratch.last_name in i: 
           fin_accessible_arenas += [i]
       else: 
@@ -660,7 +662,7 @@ def run_gpt_prompt_action_arena(action_description,
     return True
   
   def get_fail_safe(): 
-    fs = ("kitchen")
+    fs = ("廚房")
     return fs
 
   gpt_param = {"engine": "text-davinci-003", "max_tokens": 15, 
@@ -796,7 +798,7 @@ def run_gpt_prompt_pronunciatio(action_description, persona, verbose=False):
   prompt_input = create_prompt_input(action_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
   example_output = "🛁🧖‍♀️" ########
-  special_instruction = "The value for the output must ONLY contain the emojis." ########
+  special_instruction = "輸出的內容只限於表情符號." ########
   fail_safe = get_fail_safe()
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -860,7 +862,7 @@ def run_gpt_prompt_event_triple(action_description, persona, verbose=False):
     return True 
 
   def get_fail_safe(persona): 
-    fs = (persona.name, "is", "idle")
+    fs = (persona.name, "在", "空閒")
     return fs
 
 
@@ -948,7 +950,7 @@ def run_gpt_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=Fals
     return True 
 
   def get_fail_safe(act_game_object): 
-    fs = f"{act_game_object} is idle"
+    fs = f"{act_game_object}在空閒"
     return fs
 
   # ChatGPT Plugin ===========================================================
@@ -972,8 +974,8 @@ def run_gpt_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=Fals
   prompt_template = "persona/prompt_template/v3_ChatGPT/generate_obj_event_v1.txt" #bed被睡的魔板
   prompt_input = create_prompt_input(act_game_object, act_desp, persona)
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = "being fixed"
-  special_instruction = "The output should ONLY contain the phrase that should go in <fill in>."
+  example_output = "修復中"
+  special_instruction = "輸出會包含<fill in>所提及的短句."
   fail_safe = get_fail_safe(act_game_object)
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -1106,7 +1108,7 @@ def run_gpt_prompt_new_decomp_schedule(persona,
   
   def __func_clean_up(gpt_response, prompt=""):
     new_schedule = prompt + " " + gpt_response.strip()
-    new_schedule = new_schedule.split("The revised schedule:")[-1].strip()
+    new_schedule = new_schedule.split("修改後的行程表:")[-1].strip()
     new_schedule = new_schedule.split("\n")
 
     ret_temp = []
@@ -1134,7 +1136,7 @@ def run_gpt_prompt_new_decomp_schedule(persona,
           return False 
         if str(type(dur)) != "<class 'int'>":
           return False
-      x = prompt.split("\n")[0].split("originally planned schedule from")[-1].strip()[:-1]
+      x = prompt.split("\n")[0].split("原本計劃的行程表")[-1].strip()[:-1]
       x = [datetime.datetime.strptime(i.strip(), "%H:%M %p") for i in x.split(" to ")]
       delta_min = int((x[1] - x[0]).total_seconds()/60)
 
@@ -1241,12 +1243,12 @@ def run_gpt_prompt_decide_to_talk(persona, target_persona, retrieved,test_input=
     if "(" in target_act_desc: 
       target_act_desc = target_act_desc.split("(")[-1][:-1]
     
-    if len(target_persona.scratch.planned_path) == 0 and "waiting" not in init_act_desc: 
-      target_p_desc = f"{target_persona.name} is already {target_act_desc}"
+    if len(target_persona.scratch.planned_path) == 0 and "等待" not in init_act_desc: 
+      target_p_desc = f"{target_persona.name}已經{target_act_desc}"
     elif "waiting" in init_act_desc:
-      target_p_desc = f"{init_persona.name} is {init_act_desc}"
+      target_p_desc = f"{init_persona.name}在{init_act_desc}"
     else: 
-      target_p_desc = f"{target_persona.name} is on the way to {target_act_desc}"
+      target_p_desc = f"{target_persona.name}準備{target_act_desc}"
 
     prompt_input = []
     prompt_input += [context]
@@ -1266,14 +1268,14 @@ def run_gpt_prompt_decide_to_talk(persona, target_persona, retrieved,test_input=
   
   def __func_validate(gpt_response, prompt=""): 
     try: 
-      if gpt_response.split("Answer in yes or no:")[-1].strip().lower() in ["yes", "no"]: 
+      if gpt_response.split('以"yes"或"no"進行回答:')[-1].strip().lower() in ["yes", "no"]: 
         return True
       return False     
     except:
       return False 
 
   def __func_clean_up(gpt_response, prompt=""):
-    return gpt_response.split("Answer in yes or no:")[-1].strip().lower()
+    return gpt_response.split('以"yes"或"no"進行回答:')[-1].strip().lower()
 
   def get_fail_safe(): 
     fs = "yes"
@@ -1320,12 +1322,12 @@ def run_gpt_prompt_decide_to_react(persona, target_persona, retrieved,test_input
       loc = ""
       if ":" in init_persona.scratch.act_address:
         loc = init_persona.scratch.act_address.split(":")[-1] + " in " + init_persona.scratch.act_address.split(":")[-2]
-      init_p_desc = f"{init_persona.name} is already {init_act_desc} at {loc}"
+      init_p_desc = f"{init_persona.name}已經{init_act_desc} at {loc}"
     else: 
       loc = ""
       if ":" in init_persona.scratch.act_address:
         loc = init_persona.scratch.act_address.split(":")[-1] + " in " + init_persona.scratch.act_address.split(":")[-2]
-      init_p_desc = f"{init_persona.name} is on the way to {init_act_desc} at {loc}"
+      init_p_desc = f"{init_persona.name}準備{init_act_desc} at {loc}"
 
     target_act_desc = target_persona.scratch.act_description
     if "(" in target_act_desc: 
@@ -1334,12 +1336,12 @@ def run_gpt_prompt_decide_to_react(persona, target_persona, retrieved,test_input
       loc = ""
       if ":" in target_persona.scratch.act_address:
         loc = target_persona.scratch.act_address.split(":")[-1] + " in " + target_persona.scratch.act_address.split(":")[-2]
-      target_p_desc = f"{target_persona.name} is already {target_act_desc} at {loc}"
+      target_p_desc = f"{target_persona.name}已經{target_act_desc} at {loc}"
     else: 
       loc = ""
       if ":" in target_persona.scratch.act_address:
         loc = target_persona.scratch.act_address.split(":")[-1] + " in " + target_persona.scratch.act_address.split(":")[-2]
-      target_p_desc = f"{target_persona.name} is on the way to {target_act_desc} at {loc}"
+      target_p_desc = f"{target_persona.name}準備{target_act_desc} at {loc}"
 
     prompt_input = []
     prompt_input += [context]
@@ -1357,14 +1359,14 @@ def run_gpt_prompt_decide_to_react(persona, target_persona, retrieved,test_input
   
   def __func_validate(gpt_response, prompt=""): 
     try: 
-      if gpt_response.split("Answer: Option")[-1].strip().lower() in ["3", "2", "1"]: 
+      if gpt_response.split("回答選項")[-1].strip().lower() in ["3", "2", "1"]: 
         return True
       return False     
     except:
       return False 
 
   def __func_clean_up(gpt_response, prompt=""):
-    return gpt_response.split("Answer: Option")[-1].strip().lower() 
+    return gpt_response.split("回答選項")[-1].strip().lower() 
 
   def get_fail_safe(): 
     fs = "3"
@@ -1415,7 +1417,7 @@ def run_gpt_prompt_create_conversation(persona, target_persona, curr_loc,
       for i in init_persona.a_mem.seq_chat: 
         if i.object == target_persona.scratch.name: 
           v1 = int((init_persona.scratch.curr_time - i.created).total_seconds()/60)
-          prev_convo_insert += f'{str(v1)} minutes ago, they had the following conversation.\n'
+          prev_convo_insert += f'在{str(v1)} 分鐘前，他們的對話內容如下。\n'
           for row in i.filling: 
             prev_convo_insert += f'{row[0]}: "{row[1]}"\n'
           break
@@ -1442,15 +1444,15 @@ def run_gpt_prompt_create_conversation(persona, target_persona, curr_loc,
 
     init_persona_curr_desc = ""
     if init_persona.scratch.planned_path: 
-      init_persona_curr_desc = f"{init_persona.name} is on the way to {init_persona.scratch.act_description}"
+      init_persona_curr_desc = f"{init_persona.name}準備{init_persona.scratch.act_description}"
     else: 
-      init_persona_curr_desc = f"{init_persona.name} is {init_persona.scratch.act_description}"
+      init_persona_curr_desc = f"{init_persona.name}在{init_persona.scratch.act_description}"
 
     target_persona_curr_desc = ""
     if target_persona.scratch.planned_path: 
-      target_persona_curr_desc = f"{target_persona.name} is on the way to {target_persona.scratch.act_description}"
+      target_persona_curr_desc = f"{target_persona.name}準備{target_persona.scratch.act_description}"
     else: 
-      target_persona_curr_desc = f"{target_persona.name} is {target_persona.scratch.act_description}"
+      target_persona_curr_desc = f"{target_persona.name}在{target_persona.scratch.act_description}"
  
 
     curr_loc = curr_loc["arena"]
@@ -1486,7 +1488,7 @@ def run_gpt_prompt_create_conversation(persona, target_persona, curr_loc,
     # print (gpt_response)
 
 
-    gpt_response = (prompt + gpt_response).split("What would they talk about now?")[-1].strip()
+    gpt_response = (prompt + gpt_response).split("現在他們會談討論什麼?")[-1].strip()
     content = re.findall('"([^"]*)"', gpt_response)
 
     speaker_order = []
@@ -1509,8 +1511,8 @@ def run_gpt_prompt_create_conversation(persona, target_persona, curr_loc,
       return False 
 
   def get_fail_safe(init_persona, target_persona): 
-    convo = [[init_persona.name, "Hi!"], 
-             [target_persona.name, "Hi!"]]
+    convo = [[init_persona.name, "您好!"], 
+             [target_persona.name, "您好!"]]
     return convo
 
 
@@ -1562,12 +1564,12 @@ def run_gpt_prompt_summarize_conversation(persona, conversation, test_input=None
       return False 
 
   def get_fail_safe(): 
-    return "conversing with a housemate about morning greetings"
+    return "與室友談論早上的問候語"
 
 
   # ChatGPT Plugin ===========================================================
   def __chat_func_clean_up(gpt_response, prompt=""): ############
-    ret = "conversing about " + gpt_response.strip()
+    ret = "關於" + gpt_response.strip()
     return ret
 
   def __chat_func_validate(gpt_response, prompt=""): ############
@@ -1585,8 +1587,8 @@ def run_gpt_prompt_summarize_conversation(persona, conversation, test_input=None
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_conversation_v1.txt" ########
   prompt_input = create_prompt_input(conversation, test_input)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = "conversing about what to eat for lunch" ########
-  special_instruction = "The output must continue the sentence above by filling in the <fill in> tag. Don't start with 'this is a conversation about...' Just finish the sentence but do not miss any important details (including who are chatting)." ########
+  example_output = "討論午餐吃什麼?" ########
+  special_instruction = "輸出必須通過<fill in>填寫標籤來接續上述句子。只需完成句子，但不要漏掉任何重要的细節（包含誰在聊天）。" ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -1625,7 +1627,7 @@ def run_gpt_prompt_extract_keywords(persona, description, test_input=None, verbo
   def __func_clean_up(gpt_response, prompt=""):
     print ("???")
     print (gpt_response)
-    gpt_response = gpt_response.strip().split("Emotive keywords:")
+    gpt_response = gpt_response.strip().split("情感關鍵詞:")
     factual = [i.strip() for i in gpt_response[0].split(",")]
     emotive = [i.strip() for i in gpt_response[1].split(",")]
     all_keywords = factual + emotive
@@ -1839,7 +1841,7 @@ def run_gpt_prompt_event_poignancy(persona, event_description, test_input=None, 
   prompt_input = create_prompt_input(persona, event_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
   example_output = "5" ########
-  special_instruction = "The output should ONLY contain ONE integer value on the scale of 1 to 10." ########
+  special_instruction = "輸出的範圍只包含在1到10的一個整數值" ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -1910,7 +1912,7 @@ def run_gpt_prompt_thought_poignancy(persona, event_description, test_input=None
   prompt_input = create_prompt_input(persona, event_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
   example_output = "5" ########
-  special_instruction = "The output should ONLY contain ONE integer value on the scale of 1 to 10." ########
+  special_instruction = "輸出的範圍只包含在1到10的一個整數值" ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -1982,7 +1984,7 @@ def run_gpt_prompt_chat_poignancy(persona, event_description, test_input=None, v
   prompt_input = create_prompt_input(persona, event_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
   example_output = "5" ########
-  special_instruction = "The output should ONLY contain ONE integer value on the scale of 1 to 10." ########
+  special_instruction = "輸出的範圍只包含在1到10的一個整數值" ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -2034,7 +2036,7 @@ def run_gpt_prompt_focal_pt(persona, statements, n, test_input=None, verbose=Fal
       return False 
 
   def get_fail_safe(n): 
-    return ["Who am I"] * n
+    return ["我是誰"] * n
 
 
   # ChatGPT Plugin ===========================================================
@@ -2057,8 +2059,8 @@ def run_gpt_prompt_focal_pt(persona, statements, n, test_input=None, verbose=Fal
   prompt_template = "persona/prompt_template/v3_ChatGPT/generate_focal_pt_v1.txt" ########
   prompt_input = create_prompt_input(persona, statements, n)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = '["What should Jane do for lunch", "Does Jane like strawberry", "Who is Jane"]' ########
-  special_instruction = "Output must be a list of str." ########
+  example_output = '["Jane應該吃什麼午餐", "Jane喜歡吃草莓嗎", "Jane是誰"]' ########
+  special_instruction = "輸出必須為字符串的列表." ########
   fail_safe = get_fail_safe(n) ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -2102,8 +2104,8 @@ def run_gpt_prompt_insight_and_guidance(persona, statements, n, test_input=None,
     ret = dict()
     for i in gpt_response.split("\n"): 
       row = i.split(". ")[-1]
-      thought = row.split("(because of ")[0].strip()
-      evi_raw = row.split("(because of ")[1].split(")")[0].strip()
+      thought = row.split("(由於")[0].strip()
+      evi_raw = row.split("(由於")[1].split(")")[0].strip()
       evi_raw = re.findall(r'\d+', evi_raw)
       evi_raw = [int(i.strip()) for i in evi_raw]
       ret[thought] = evi_raw
@@ -2117,7 +2119,7 @@ def run_gpt_prompt_insight_and_guidance(persona, statements, n, test_input=None,
       return False 
 
   def get_fail_safe(n): 
-    return ["I am hungry"] * n
+    return ["我餓了"] * n
 
 
 
@@ -2184,8 +2186,8 @@ def run_gpt_prompt_agent_chat_summarize_ideas(persona, target_persona, statement
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_chat_ideas_v1.txt" ########
   prompt_input = create_prompt_input(persona, target_persona, statements, curr_context)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = 'Jane Doe is working on a project' ########
-  special_instruction = 'The output should be a string that responds to the question.' ########
+  example_output = 'Jane Doe在執行他的工作內容。' ########
+  special_instruction = '輸出應該是一個能回答問題的字符串。' ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -2250,8 +2252,8 @@ def run_gpt_prompt_agent_chat_summarize_relationship(persona, target_persona, st
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_chat_relationship_v2.txt" 
   prompt_input = create_prompt_input(persona, target_persona, statements)  
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = 'close relationship'
-  special_instruction = 'The output should be a string that responds to the question.'
+  example_output = 'Jane Doe在執行他的工作內容。'
+  special_instruction = '輸出應該是一個能回答問題的字符串。'
   fail_safe = get_fail_safe()
   #output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
   #                                        __chat_func_validate, __chat_func_clean_up, True)
@@ -2378,8 +2380,8 @@ def run_gpt_prompt_agent_chat(maze, persona, target_persona,
   prompt_template = "persona/prompt_template/v3_ChatGPT/agent_chat_v1.txt" ########
   prompt_input = create_prompt_input(persona, target_persona, curr_context, init_summ_idea, target_summ_idea)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = '[["Jane Doe", "Hi!"], ["John Doe", "Hello there!"] ... ]' ########
-  special_instruction = 'The output should be a list of list where the inner lists are in the form of ["<Name>", "<Utterance>"].' ########
+  example_output = '[["Jane Doe", "您好!"], ["John Doe", "哈囉!"] ... ]' ########
+  special_instruction = '輸出應該一個列表的列表，其中內部的格式應為["<Name>", "<Utterance>"].' ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -2459,8 +2461,8 @@ def run_gpt_prompt_summarize_ideas(persona, statements, question, test_input=Non
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_ideas_v1.txt" ########
   prompt_input = create_prompt_input(persona, statements, question)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = 'Jane Doe is working on a project' ########
-  special_instruction = 'The output should be a string that responds to the question.' ########
+  example_output = 'Jane Doe在執行他的工作內容' ########
+  special_instruction = '輸出應該是一個能回答問題的字符串。' ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -2678,8 +2680,8 @@ def run_gpt_prompt_memo_on_convo(persona, all_utt, test_input=None, verbose=Fals
   prompt_template = "persona/prompt_template/v3_ChatGPT/memo_on_convo_v1.txt" ########
   prompt_input = create_prompt_input(persona, all_utt)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = 'Jane Doe was interesting to talk to.' ########
-  special_instruction = 'The output should ONLY contain a string that summarizes anything interesting that the agent may have noticed' ########
+  example_output = 'Jane Doe聊天非常有趣' ########
+  special_instruction = '输出内容會包含注意到的任何有趣情况的總結字符串' ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
@@ -2772,7 +2774,7 @@ def run_gpt_generate_iterative_chat_utt(maze, init_persona, target_persona, retr
       for i in persona.a_mem.seq_chat: 
         if i.object == target_persona.scratch.name: 
           v1 = int((persona.scratch.curr_time - i.created).total_seconds()/60)
-          prev_convo_insert += f'{str(v1)} minutes ago, {persona.scratch.name} and {target_persona.scratch.name} were already {i.description} This context takes place after that conversation.'
+          prev_convo_insert += f'{str(v1)} 幾分鐘, {persona.scratch.name} 和 {target_persona.scratch.name}已經在{i.description} 這段上下文發生在那次對話之後。'
           break
     if prev_convo_insert == "\n": 
       prev_convo_insert = ""
@@ -2794,9 +2796,9 @@ def run_gpt_generate_iterative_chat_utt(maze, init_persona, target_persona, retr
     for i in curr_chat:
       convo_str += ": ".join(i) + "\n"
     if convo_str == "": 
-      convo_str = "[The conversation has not started yet -- start it!]"
+      convo_str = "[對話還沒開始 -- 開始對話!]"
 
-    init_iss = f"Here is Here is a brief description of {init_persona.scratch.name}.\n{init_persona.scratch.get_str_iss()}"
+    init_iss = f"這裡是對{init_persona.scratch.name}的簡單說明。\n{init_persona.scratch.get_str_iss()}"
     prompt_input = [init_iss, init_persona.scratch.name, retrieved_str, prev_convo_insert,
       curr_location, curr_context, init_persona.scratch.name, target_persona.scratch.name,
       convo_str, init_persona.scratch.name, target_persona.scratch.name,

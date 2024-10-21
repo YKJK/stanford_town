@@ -1,10 +1,10 @@
 generate_pronunciatio_v1.txt
 
-Variables: 
-!<INPUT 0>! -- Action description
+變量: 
+!<INPUT 0>! -- 動作描述
 
 <commentblockmarker>###</commentblockmarker>
-Convert an action description to an emoji (important: use two or less emojis).
+將動作描述轉換為表情符號（重要：使用兩個或更少的表情符號）。
 
-Action description: !<INPUT 0>!
-Emoji:
+動作描述: !<INPUT 0>!
+表情符號:

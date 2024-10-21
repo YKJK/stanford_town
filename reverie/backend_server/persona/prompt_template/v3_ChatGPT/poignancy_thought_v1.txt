@@ -1,15 +1,15 @@
 poignancy_thought_v1.txt
 
-!<INPUT 1>!: agent name
+!<INPUT 1>!: 代理名稱
 !<INPUT 1>!: iss
-!<INPUT 2>!: name 
-!<INPUT 3>!: event description
+!<INPUT 2>!: 名稱 
+!<INPUT 3>!: 事件描述
 
 <commentblockmarker>###</commentblockmarker>
-Here is a brief description of !<INPUT 0>!. 
+這是對!<INPUT 0>!的簡單描述。
 !<INPUT 1>!
 
-On the scale of 1 to 10, where 1 is purely mundane (e.g., I need to do the dishes, I need to walk the dog) and 10 is extremely significant (e.g., I wish to become a professor, I love Elie), rate the likely significance of the following thought for !<INPUT 2>!.
+在1到10的規模上，其中1是純粹的日常事務（例如，我需要洗碗，我需要遛狗）和10是極其重要的（例如，我希望成為一名教授，我愛Elie），請為!<INPUT 2>!以下想法可能的重要性打分。
 
-Thought: !<INPUT 3>!
-Rate (return ONLY a number between 1 to 10):
+思考：!<INPUT 3>!
+評分（返回1到10之間的數字）：

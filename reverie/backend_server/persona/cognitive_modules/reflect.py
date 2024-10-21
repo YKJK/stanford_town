@@ -23,7 +23,7 @@ def generate_focal_points(persona, n=3):
   
   nodes = [[i.last_accessed, i]
             for i in persona.a_mem.seq_event + persona.a_mem.seq_thought
-            if "idle" not in i.embedding_key]
+            if "空閒" not in i.embedding_key]
 
   nodes = sorted(nodes, key=lambda x: x[0])
   nodes = [i for created, i in nodes]
@@ -214,7 +214,7 @@ def reflect(persona):
       evidence = [persona.a_mem.get_last_chat(persona.scratch.chatting_with).node_id]
 
       planning_thought = generate_planning_thought_on_convo(persona, all_utt)
-      planning_thought = f"For {persona.scratch.name}'s planning: {planning_thought}"
+      planning_thought = f"對於{persona.scratch.name}的計畫: {planning_thought}"
 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)

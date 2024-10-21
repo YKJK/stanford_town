@@ -1,27 +1,27 @@
 agent_chat_v1.txt
 
-Variables: 
-!<INPUT 0>! -- Init persona currently 
-!<INPUT 1>! -- Target persona currently
-!<INPUT 2>! -- prior convo summary
-!<INPUT 3>! -- Context
-!<INPUT 4>! -- init persona retrieved info
-!<INPUT 5>! -- target persona retrieved info
-!<INPUT 6>! -- init persona name
+變量: 
+!<INPUT 0>! -- 當前初始化人物
+!<INPUT 1>! -- 當前目標人物
+!<INPUT 2>! -- 之前的對話總結
+!<INPUT 3>! -- 上下文
+!<INPUT 4>! -- 檢索到的初始化人物信息
+!<INPUT 5>! -- 檢索到的目標人物信息
+!<INPUT 6>! -- 初始化人物的名字
 
 <commentblockmarker>###</commentblockmarker>
-Character 1: !<INPUT 0>!
-Character 2: !<INPUT 1>!
+角色1：!<INPUT 0>!
+角色2：!<INPUT 1>!
 
-Past Context: !<INPUT 2>!
+過去的上下文：!<INPUT 2>!
 
-Current Context: !<INPUT 3>!
-Current Location: !<INPUT 4>!
+當前的上下文：!<INPUT 3>!
+當前的位置：!<INPUT 4>!
 
-(This is what is in !<INPUT 5>!'s head: !<INPUT 6>! Beyond this, !<INPUT 7>! doesn't necessarily know anything more about !<INPUT 8>!) 
+（這是在!<INPUT 5>!的頭腦中：!<INPUT 6>! 除此之外，!<INPUT 7>! 不一定知道!<INPUT 8>!的其他信息）
 
-(This is what is in !<INPUT 9>!'s head: !<INPUT 10>! Beyond this, !<INPUT 11>! doesn't necessarily know anything more about !<INPUT 12>!) 
+（這是在!<INPUT 9>!的頭腦中：!<INPUT 10>! 除此之外，!<INPUT 11>! 不一定知道!<INPUT 12>!的其他信息）
 
-Here is their conversation. 
+以下是他們的對話。
 
 !<INPUT 13>!: "

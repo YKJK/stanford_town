@@ -1,11 +1,11 @@
 summarize_conversation_v1.txt
 
-Variables: 
-!<INPUT 0>! -- init_persona_name
+變量: 
+!<INPUT 0>! -- 初始化角色名
 
 <commentblockmarker>###</commentblockmarker>
-Conversation: 
+對話: 
 !<INPUT 0>!
 
-Summarize the conversation above in one sentence:
-This is a conversation about
+用一句話總結上述對話：
+這是一次關於

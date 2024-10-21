@@ -1,15 +1,15 @@
 convo_to_thoughts_v1.txt
 
-Variables: 
-!<INPUT 0>! -- init persona name
-!<INPUT 1>! -- target persona name
-!<INPUT 2>! -- convo string
-!<INPUT 3>! -- init persona name
-!<INPUT 4>! -- target persona name or "the conversation"
+變量: 
+!<INPUT 0>! -- 初始人物名稱
+!<INPUT 1>! -- 目標人物名稱
+!<INPUT 2>! -- 對話字符串
+!<INPUT 3>! -- 初始人物名稱
+!<INPUT 4>! -- 目標人物 或 "對話"
 
 <commentblockmarker>###</commentblockmarker>
-Here is the conversation that happened between !<INPUT 0>! and !<INPUT 1>!. 
+以下是!<INPUT 0>!和!<INPUT 1>!之間發生的對話。
 
 !<INPUT 2>!
 
-Summarize what !<INPUT 3>! thought about !<INPUT 4>! in one short sentence. The sentence needs to be in third person:
+以一句簡短的句子概括!<INPUT 3>!對!<INPUT 4>!的想法。句子需要用第三人稱：

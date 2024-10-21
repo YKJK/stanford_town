@@ -1,24 +1,23 @@
 new_decomp_schedule_v1.txt
 
-Variables: 
-!<INPUT 0>! -- persona name 
-!<INPUT 1>! -- start hour
-!<INPUT 2>! -- end hour 
-!<INPUT 3>! -- original plan
-!<INPUT 4>! -- persona name
-!<INPUT 5>! -- new event
-!<INPUT 6>! -- new event duration
-!<INPUT 7>! -- persona name 
-!<INPUT 8>! -- start hour
-!<INPUT 9>! -- end hour 
-!<INPUT 10>! -- end hour 
-!<INPUT 11>! -- new schedule init 
-
+變量: 
+!<INPUT 0>! -- 人物名字 
+!<INPUT 1>! -- 開始時間
+!<INPUT 2>! -- 結束時間
+!<INPUT 3>! -- 原本計劃
+!<INPUT 4>! -- 人物名字
+!<INPUT 5>! -- 新活動
+!<INPUT 6>! -- 新活動持續時間
+!<INPUT 7>! -- 人物名字
+!<INPUT 8>! -- 開始時間
+!<INPUT 9>! -- 結束時間
+!<INPUT 10>! -- 結束時間
+!<INPUT 11>! -- 新的計劃開始時間
 
 <commentblockmarker>###</commentblockmarker>
-Here was !<INPUT 0>!'s originally planned schedule from !<INPUT 1>! to !<INPUT 2>!. 
+這是!<INPUT 0>!原本計劃的日程，從!<INPUT 1>!開始，到!<INPUT 2>!結束。 
 !<INPUT 3>!
 
-But !<INPUT 4>! unexpectedly ended up !<INPUT 5>! for !<INPUT 6>! minutes. Revise !<INPUT 7>!'s schedule from !<INPUT 8>! to !<INPUT 9>! accordingly (it has to end by !<INPUT 10>!). 
-The revised schedule:
+但是!<INPUT 4>!在沒預料到的情況下，花了!<INPUT 6>!分鐘做了!<INPUT 5>!。請根據此情況修改!<INPUT 7>!的日程，從!<INPUT 8>!開始，至!<INPUT 9>!結束（應該在!<INPUT 10>!之前結束）。 
+修改後的日程：
 !<INPUT 11>!

@@ -1,14 +1,15 @@
 poignancy_event_v1.txt
 
-!<INPUT 1>!: agent name
+!<INPUT 1>!: 代理人名字
 !<INPUT 1>!: iss
-!<INPUT 2>!: name 
-!<INPUT 3>!: event description
+!<INPUT 2>!: 名字
+!<INPUT 3>!: 事件描述
 
 <commentblockmarker>###</commentblockmarker>
-Here is a brief description of !<INPUT 0>!. 
+這是對!<INPUT 0>!的簡單描述。
 !<INPUT 1>!
 
-Event: !<INPUT 3>!
-On the scale of 1 to 10, where 1 is purely mundane (e.g., brushing teeth, making bed) and 10 is extremely poignant (e.g., a break up, college acceptance), rate the likely poignancy of the event above for !<INPUT 2>!.
-Rate (return ONLY a number between 1 to 10):
+在1到10的標準上，其中1代表完全平凡的事(例如，刷牙，整理床鋪)，10代表非常重要的事(例如，分手，被大學錄取)，請對以下事件可能對!<INPUT 2>!產生的重要性進行評估。
+
+事件：!<INPUT 3>!
+評估（返回一個1到10之間的數字）

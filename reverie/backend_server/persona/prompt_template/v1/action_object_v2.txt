@@ -1,32 +1,32 @@
-Variables: 
-!<INPUT 0>! -- curr action seq
-!<INPUT 1>! -- Objects available
+變量: 
+!<INPUT 0>! -- 當前動作順序
+!<INPUT 1>! -- 可用的物品
 
 <commentblockmarker>###</commentblockmarker>
-Current activity: sleep in bed
-Objects available: {bed, easel, closet, painting}
-Pick ONE most relevant object from the objects available: bed
+當前活動：睡覺
+可用的物品：{床，畫架，衣櫃，畫作}
+從可用物品中選擇一個最相關的對象：床
 ---
-Current activity: painting
-Objects available: {easel, closet, sink, microwave}
-Pick ONE most relevant object from the objects available: easel
+當前活動：繪畫
+可用的物品：{畫架, 衣櫃, 水槽, 微波爐}
+從可用物品中選擇一個最相關的對象：畫架
 ---
-Current activity: cooking
-Objects available: {stove, sink, fridge, counter}
-Pick ONE most relevant object from the objects available: stove
+當前活動：烹飪
+可用的物品：{爐子, 水槽, 冰箱, 櫃台}
+從可用物品中選擇一個最相關的對象：爐子
 ---
-Current activity: watch TV
-Objects available: {couch, TV, remote, coffee table}
-Pick ONE most relevant object from the objects available: TV
+當前活動：看電視
+可用的物品：{沙發, 電視機, 遙控器, 咖啡桌}
+從可用物品中選擇一個最相關的對象：電視機
 ---
-Current activity: study
-Objects available: {desk, computer, chair, bookshelf}
-Pick ONE most relevant object from the objects available: desk
+當前活動：學習
+可用的物品：{書桌, 電腦, 椅子, 書架}
+從可用物品中選擇一個最相關的對象：書桌
 ---
-Current activity: talk on the phone
-Objects available: {phone, charger, bed, nightstand}
-Pick ONE most relevant object from the objects available: phone
+當前活動：打電話
+可用的物品：{電話, 充電器, 床, 床頭櫃}
+從可用物品中選擇一個最相關的對象：電話
 ---
-Current activity: !<INPUT 0>!
-Objects available: {!<INPUT 1>!}
-Pick ONE most relevant object from the objects available:
+當前活動：!<INPUT 0>!
+可用的物品：{!<INPUT 1>!}
+從可用物品中選擇一個最相關的對象：

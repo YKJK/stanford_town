@@ -177,8 +177,8 @@ def GPT4_safe_generate_response(prompt,
                                 func_clean_up=None,
                                 verbose=False): 
   print("---->GPT4_safe_generate_response")
-  prompt_new = f"Output the response to the prompt above in json. {special_instruction}\n"
-  prompt_new += "Example output json:\n"
+  prompt_new = f"將上述提示的響應輸出為json格式。{special_instruction}\n"
+  prompt_new += "範例輸出 json:\n"
   prompt_new += '{"output": "' + str(example_output) + '"}'
   prompt_new = 'Question:\n"""\n' + prompt + '\n"""\n'
 
@@ -210,7 +210,7 @@ def ChatGPT_safe_generate_response(prompt,
                                    verbose=False): 
   print("---->ChatGPT_safe_generate_response")
   prompt_new = f"{special_instruction}\n"
-  prompt_new += "Example output:\n"
+  prompt_new += "範例輸出:\n"
   prompt_new += f"{example_output}\n"
   prompt_new = 'Question:\n"""\n' + prompt + '\n"""\n'
 
@@ -333,7 +333,7 @@ def get_embedding(text):
   print ("--->get_embedding---->")
   text = text.replace("\n", " ")
   if not text:
-    text = "this is blank"
+    text = "這是空白"
   embedder = Embed4All()
   embedding = embedder.embed(text)
   return embedding

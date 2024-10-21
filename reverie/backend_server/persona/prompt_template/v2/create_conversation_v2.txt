@@ -1,47 +1,47 @@
 create_conversation_v2.txt
 
-Variables: 
-!<INPUT 0>! -- init_persona iss
-!<INPUT 1>! -- target_persona iss
+變量: 
+!<INPUT 0>! -- 初始角色 iss
+!<INPUT 1>! -- 目標角色 iss
 
-!<INPUT 2>! -- init_persona_name
-!<INPUT 3>! -- target_persona_name
-!<INPUT 4>! -- init_persona's thoughts
+!<INPUT 2>! -- 初始角色的名字
+!<INPUT 3>! -- 目標角色的名字
+!<INPUT 4>! -- 初始角色的想法
 
-!<INPUT 5>! -- target_persona_name
-!<INPUT 6>! -- init_persona_name
-!<INPUT 7>! -- target_persona's thoughts
+!<INPUT 5>! -- 目標角色的名字
+!<INPUT 6>! -- 初始角色的名字
+!<INPUT 7>! -- 目標角色的想法
 
-!<INPUT 8>! -- current time
-!<INPUT 9>! -- init_persona curr action description
-!<INPUT 10>! -- target_persona curr action description
+!<INPUT 8>! -- 當前時間
+!<INPUT 9>! -- 初始角色當前行動描述
+!<INPUT 10>! -- 目標角色當前行動描述
 
-!<INPUT 11>! -- previous convo
+!<INPUT 11>! -- 之前的對話
 
-!<INPUT 12>! -- init_persona_name
-!<INPUT 13>! -- target_persona_name
-!<INPUT 14>! -- curr_location name
-!<INPUT 15>! -- init_persona_name
+!<INPUT 12>! -- 初始角色的名字
+!<INPUT 13>! -- 目標角色的名字
+!<INPUT 14>! -- 當前位置名稱
+!<INPUT 15>! -- 初始角色的名字
 
 <commentblockmarker>###</commentblockmarker>
-We have two characters. 
+我們有兩個角色。
 
-Character 1. 
+角色1. 
 !<INPUT 0>!
 
-Character 2. 
+角色2. 
 !<INPUT 1>!
 ---
-Context: 
-Here is what !<INPUT 2>! thinks about !<INPUT 3>!: 
+上下文: 
+這是!<INPUT 2>!對!<INPUT 3>!的看法:
 !<INPUT 4>!
-Here is what !<INPUT 5>! thinks about !<INPUT 6>!:
+這是!<INPUT 5>!對!<INPUT 6>!的看法:
 !<INPUT 7>!
-Currently, it is !<INPUT 8>!
+現在是!<INPUT 8>!
 -- !<INPUT 9>!
 -- !<INPUT 10>!
 !<INPUT 11>!
 
-!<INPUT 12>! and !<INPUT 13>! are in !<INPUT 14>!. What would they talk about now?
+!<INPUT 12>!和!<INPUT 13>!在!<INPUT 14>!。現在他們會談論什麼？
 
 !<INPUT 15>!: "

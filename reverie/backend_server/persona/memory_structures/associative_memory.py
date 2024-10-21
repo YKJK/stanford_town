@@ -184,7 +184,7 @@ class AssociativeMemory:
     self.id_to_node[node_id] = node 
 
     # Adding in the kw_strength
-    if f"{p} {o}" != "is idle":  
+    if f"{p} {o}" != "在空閒":  
       for kw in keywords: 
         if kw in self.kw_strength_event: 
           self.kw_strength_event[kw] += 1
@@ -228,7 +228,7 @@ class AssociativeMemory:
     self.id_to_node[node_id] = node 
 
     # Adding in the kw_strength
-    if f"{p} {o}" != "is idle":  
+    if f"{p} {o}" != "在空閒":  
       for kw in keywords: 
         if kw in self.kw_strength_thought: 
           self.kw_strength_thought[kw] += 1

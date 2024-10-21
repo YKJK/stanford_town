@@ -1,15 +1,15 @@
 planning_thought_on_convo_v1.txt
 
-Variables: 
-!<INPUT 0>! -- All convo utterances
-!<INPUT 1>! -- persona name
-!<INPUT 2>! -- persona name
-!<INPUT 3>! -- persona name
+變量: 
+!<INPUT 0>! -- 所有對話列表
+!<INPUT 1>! -- 人物名稱
+!<INPUT 2>! -- 人物名稱
+!<INPUT 3>! -- 人物名稱
 
 <commentblockmarker>###</commentblockmarker>
-[Conversation]
+[對話]
 !<INPUT 0>!
 
-Write down if there is anything from the conversation that !<INPUT 1>! need to remember for her planning, from !<INPUT 2>!'s perspective, in a full sentence.
+以完整的句子寫下從!<INPUT 2>!的視角，!<INPUT 1>!需要從對話中記住的規劃信息。
 
 "!<INPUT 3>!

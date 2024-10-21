@@ -1,19 +1,16 @@
 generate_obj_event_v1.txt
 
-Variables: 
-!<INPUT 0>! -- Object name 
-!<INPUT 1>! -- Persona name
-!<INPUT 2>! -- Persona action event description 
-!<INPUT 3>! -- Object name 
-!<INPUT 4>! -- Object name 
+變量：
+!<INPUT 0>! -- 對象名稱
+!<INPUT 1>! -- 人物名稱
+!<INPUT 2>! -- 人物行動事件描述
+!<INPUT 3>! -- 對象名稱
+!<INPUT 4>! -- 對象名稱
 
 <commentblockmarker>###</commentblockmarker>
-Task:We want to understand the state of an object that is being used by someone.
-Example:
-We want to know about computer's state.
-Step1.Michael Bernstein is writing email at/using the computer.
-Step2.Describe the computer's state: computer is being used to write email.
-Let's think step by step.
-We want to know about !<INPUT 0>!'s state.
-Step 1. !<INPUT 1>! is at/using the !<INPUT 2>!.
-Step 2. Describe the !<INPUT 3>!'s state: !<INPUT 4>! is
+任務：我們想了解某人在使用的對象的狀態。
+
+讓我們逐步思考。
+我們想知道關於!<INPUT 0>!的狀態。
+步驟1. !<INPUT 1>!在/使用!<INPUT 2>!。
+步驟2. 描述!<INPUT 3>!的狀態：!<INPUT 4>!在

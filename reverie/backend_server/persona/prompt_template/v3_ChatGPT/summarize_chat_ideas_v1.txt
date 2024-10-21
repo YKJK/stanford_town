@@ -1,19 +1,19 @@
 summarize_chat_ideas_v1.txt
 
-Variables: 
-!<INPUT 0>! -- Current date
-!<INPUT 1>! -- curr_context
-!<INPUT 2>! -- currently
-!<INPUT 3>! -- Statements
-!<INPUT 4>! -- curr persona name
-!<INPUT 5>! -- target_persona.scratch.name
+變量: 
+!<INPUT 0>! -- 當前日期
+!<INPUT 1>! -- 當前上下文
+!<INPUT 2>! -- 當前情況
+!<INPUT 3>! -- 陳述
+!<INPUT 4>! -- 當前人物名稱
+!<INPUT 5>! -- 目標人物模型名稱
 
 <commentblockmarker>###</commentblockmarker>
-Current Date: !<INPUT 0>!
+當前日期: !<INPUT 0>!
 
 !<INPUT 1>!
 
-Currently: !<INPUT 2>!
+當前情況: !<INPUT 2>!
 
 !<INPUT 3>!
-Summarize the most relevant statements above that can inform !<INPUT 4>! in his conversation with !<INPUT 5>!.
+總結以上最相關的陳述，這將對!<INPUT 4>!與!<INPUT 5>!的對話提供參考。

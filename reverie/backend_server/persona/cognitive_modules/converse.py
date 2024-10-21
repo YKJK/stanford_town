@@ -75,14 +75,14 @@ def generate_agent_chat(maze,
 
 def agent_chat_v1(maze, init_persona, target_persona): 
   # Chat version optimized for speed via batch generation
-  curr_context = (f"{init_persona.scratch.name} " + 
-              f"was {init_persona.scratch.act_description} " + 
-              f"when {init_persona.scratch.name} " + 
-              f"saw {target_persona.scratch.name} " + 
-              f"in the middle of {target_persona.scratch.act_description}.\n")
-  curr_context += (f"{init_persona.scratch.name} " +
-              f"is thinking of initating a conversation with " +
-              f"{target_persona.scratch.name}.")
+  curr_context = (f"{init_persona.scratch.name}" + 
+              f"正在{init_persona.scratch.act_description}" + 
+              f"當{init_persona.scratch.name}" + 
+              f"看到{target_persona.scratch.name}" + 
+              f"正在{target_persona.scratch.act_description}的過程中。\n")
+  curr_context += (f"{init_persona.scratch.name}" +
+              f"正在考慮與" +
+              f"{target_persona.scratch.name}交談對話")
 
   summarized_ideas = []
   part_pairs = [(init_persona, target_persona), 
@@ -105,14 +105,14 @@ def agent_chat_v1(maze, init_persona, target_persona):
 
 def generate_one_utterance(maze, init_persona, target_persona, retrieved, curr_chat): 
   # Chat version optimized for speed via batch generation
-  curr_context = (f"{init_persona.scratch.name} " + 
-              f"was {init_persona.scratch.act_description} " + 
-              f"when {init_persona.scratch.name} " + 
-              f"saw {target_persona.scratch.name} " + 
-              f"in the middle of {target_persona.scratch.act_description}.\n")
-  curr_context += (f"{init_persona.scratch.name} " +
-              f"is initiating a conversation with " +
-              f"{target_persona.scratch.name}.")
+  curr_context = (f"{init_persona.scratch.name}" + 
+              f"在{init_persona.scratch.act_description}" + 
+              f"當{init_persona.scratch.name}" + 
+              f"時看到了{target_persona.scratch.name}" + 
+              f"他/她正在{target_persona.scratch.act_description}。\n")
+  curr_context += (f"{init_persona.scratch.name}" +
+              f"正在和" +
+              f"{target_persona.scratch.name}開始對話。")
 
   x = run_gpt_generate_iterative_chat_utt(maze, init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
 
@@ -222,7 +222,7 @@ def generate_action_event_triple(act_desp, persona):
 def generate_poig_score(persona, event_type, description): 
   if debug: print ("GNS FUNCTION: <generate_poig_score>")
 
-  if "is idle" in description: 
+  if "空閒" in description: 
     return 1
 
   if event_type == "event" or event_type == "thought": 

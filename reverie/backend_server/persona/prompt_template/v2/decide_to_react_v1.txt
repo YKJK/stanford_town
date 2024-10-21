@@ -2,37 +2,37 @@ decide_to_react_v1.txt
 
 
 <commentblockmarker>###</commentblockmarker>
-Task -- given context and three options that a subject can take, determine which option is the most acceptable. 
+任務 -- 根據上下文和主體可以採取的三個選項，決定哪個選項是最可以接受的。
 
-Context: Jane is Liz's house mate. Jane and Liz exchanged a conversation about saying good morning at 07:05am, October 25, 2022. 
-Right now, it is 07:09 am, October 25, 2022. 
-Jane was on her way to using the bathroom right now. 
-Jane sees Liz already using the bathroom. 
-My question: Let's think step by step. Of the following three options, what should Jane do?
-Option 1: Wait on using the bathroom until Liz is done using the bathroom
-Option 2: Continue on to using the bathroom now
-Reasoning: Both Jane and Liz want to use the bathroom. 
-It would be strange for both Jane and Liz to use the bathroom at the same time. 
-So, since Liz is already using the bathroom, the best option for Jane is to wait on using the bathroom.
-Answer: Option 1
+上下文：Jane是Liz的室友。Jane和Liz在2022年10月25日07:05am互相說早安。
+現在是2022年10月25日07:09 am。
+Jane正要去使用浴室。
+Jane看到Liz已經在使用浴室。
+我的問題：讓我們一步一步思考。以下三個選項中，Jane應該做什麼？
+選項1：等Liz用完浴室後再用浴室
+選項2：現在就繼續去用浴室
+推理：Jane和Liz都想用浴室。
+如果Jane和Liz同時用浴室，那會很奇怪。
+所以，既然Liz已經在用浴室，Jane最好的選擇就是等Liz用完浴室後再用。
+答案：選項1
 ---
-Context: Sam is Sarah's friend. Sam and Sarah exchanged a conversation about favorite movies at 11pm, October 24, 2022. 
-Right now, it is 12:40 pm, October 25, 2022. 
-Sam is on the way to study for his test. 
-Sam sees Sarah heading to do her laundry. 
-My question: Let's think step by step. Of the following three options, what should Sam do?
-Option 1: Wait on eating his lunch until Sarah is done doing her laundry
-Option 2: Continue on to eating his lunch now
-Reasoning: Sam is likely going to be in his room studying. Sarah, on the other hand, is likely headed to the laundry room for doing the laundry.
-Since Sam and Sarah need to use different areas, their actions do not conflict. 
-So, since Sam and Sarah are going to be in different areas, Sam mcan continue on to eating his lunch now.
-Answer: Option 2
+上下文：Sam是Sarah的朋友。Sam和Sarah在2022年10月24日晚上11點談論了最喜歡的電影。
+現在是2022年10月25日下午12:40。
+Sam正要去覆習他的測試。
+Sam看見Sarah要去洗她的衣服。
+我的問題：讓我們一步一步思考。以下三個選項中，Sam應該做什麼？
+選項1：等Sarah洗完衣服後再吃午餐
+選項2：現在就繼續吃午餐
+推理：Sam可能會在他的房間里學習。而Sarah可能在去洗衣房洗衣服。
+由於Sam和Sarah需要使用不同的區域，他們的行動並不沖突。
+所以，由於Sam和Sarah將在不同的區域，Sam現在就可以繼續吃午餐。
+答案：選項2
 ---
-Context: !<INPUT 0>!
-Right now, it is !<INPUT 1>!. 
+上下文：!<INPUT 0>!
+現在是!<INPUT 1>!。
 !<INPUT 2>! 
 !<INPUT 3>! 
-My question: Let's think step by step. Of the following three options, what should !<INPUT 4>! do?
-Option 1: Wait on !<INPUT 5>! until !<INPUT 6>! is done !<INPUT 7>!
-Option 2: Continue on to !<INPUT 8>! now
-Reasoning: 
+我的問題：讓我們一步一步思考。以下三個選項中，!<INPUT 4>!應該做什麼？
+選項1：等!<INPUT 6>!完成!<INPUT 7>!後再!<INPUT 5>!
+選項2：現在就繼續!<INPUT 8>!
+推理：

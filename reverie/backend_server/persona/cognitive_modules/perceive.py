@@ -13,7 +13,7 @@ from persona.prompt_template.gpt_structure import *
 from persona.prompt_template.run_gpt_prompt import *
 
 def generate_poig_score(persona, event_type, description): 
-  if "is idle" in description: 
+  if "空閒" in description: 
     return 1
 
   if event_type == "event": 
@@ -110,9 +110,9 @@ def perceive(persona, maze):
     s, p, o, desc = p_event
     if not p: 
       # If the object is not present, then we default the event to "idle".
-      p = "is"
-      o = "idle"
-      desc = "idle"
+      p = "在"
+      o = "空閒"
+      desc = "空閒"
     desc = f"{s.split(':')[-1]} is {desc}"
     p_event = (s, p, o)
 

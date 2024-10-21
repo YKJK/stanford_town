@@ -1,16 +1,16 @@
 summarize_ideas_v1.txt
 
-Variables: 
-!<INPUT 0>! -- Statements
-!<INPUT 1>! -- agent name
-!<INPUT 2>! -- interviewer question
+變量: 
+!<INPUT 0>! -- 陳述
+!<INPUT 1>! -- 代理名稱
+!<INPUT 2>! -- 訪問者問題
 
 <commentblockmarker>###</commentblockmarker>
-Statements: 
+陳述: 
 !<INPUT 0>!
 
-An interviewer said to !<INPUT 1>!: 
+一位訪問者對!<INPUT 1>!說：
 "!<INPUT 2>!"
 
-Summarize the Statements that are most relevant to the interviewer's line:
+總結對訪問者問題最相關的陳述：
 "

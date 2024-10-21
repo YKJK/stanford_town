@@ -1,39 +1,39 @@
 task_decomp_v2.txt
 
-Variables: 
-!<INPUT 0>! -- Commonset
-!<INPUT 1>! -- Surrounding schedule description
-!<INPUT 2>! -- Persona first name
-!<INPUT 3>! -- Persona first name
-!<INPUT 4>! -- Current action
-!<INPUT 5>! -- curr time range
-!<INPUT 6>! -- Current action duration in min
-!<INPUT 7>! -- Persona first names
+變量: 
+!<INPUT 0>! -- 共享設置
+!<INPUT 1>! -- 周圍的日程描述
+!<INPUT 2>! -- 人物的名字
+!<INPUT 3>! -- 人物的名字
+!<INPUT 4>! -- 當前的行動
+!<INPUT 5>! -- 當前的時間範圍
+!<INPUT 6>! -- 當前行動持續時間(分鐘)
+!<INPUT 7>! -- 人物的名字
 
 <commentblockmarker>###</commentblockmarker>
-Describe subtasks in 5 min increments. 
+以間隔5分鐘的描述子任務。
 ---
-Name: Kelly Bronson
-Age: 35
-Backstory: Kelly always wanted to be a teacher, and now she teaches kindergarten. During the week, she dedicates herself to her students, but on the weekends, she likes to try out new restaurants and hang out with friends. She is very warm and friendly, and loves caring for others.
-Personality: sweet, gentle, meticulous
-Location: Kelly is in an older condo that has the following areas: {kitchen, bedroom, dining, porch, office, bathroom, living room, hallway}.
-Currently: Kelly is a teacher during the school year. She teaches at the school but works on lesson plans at home. She is currently living alone in a single bedroom condo.
-Daily plan requirement: Kelly is planning to teach during the morning and work from home in the afternoon.s
+名字：Kelly Bronson
+年齡：35
+背景故事：Kelly一直想成為一名教師，現在她教育幼兒園。在一週內，她全身心地投入到對學生的教育中，但在週末，她喜歡嘗試新的餐廳和與朋友們出去玩。她非常熱情友好，喜歡照顧別人。
+性格：甜美，溫柔，細心
+位置：Kelly位於一個較舊的公寓，有以下區域： {廚房，臥室，餐廳，陽台，辦公室，浴室，客廳，走廊}。
+目前：Kelly在學年中是一名老師。她在學校教書，但在家中制作教學計劃。她現在單獨住在一個單臥室的公寓里。
+每日計劃要求：Kelly計劃在上午教課，在下午在家工作。
 
-Today is Saturday May 10. From 08:00am ~09:00am, Kelly is planning on having breakfast, from 09:00am ~ 12:00pm, Kelly is planning on working on the next day's kindergarten lesson plan, and from 12:00 ~ 13pm, Kelly is planning on taking a break. 
-In 5 min increments, list the subtasks Kelly does when Kelly is working on the next day's kindergarten lesson plan from 09:00am ~ 12:00pm (total duration in minutes: 180):
-1) Kelly is reviewing the kindergarten curriculum standards. (duration in minutes: 15, minutes left: 165)
-2) Kelly is brainstorming ideas for the lesson. (duration in minutes: 30, minutes left: 135)
-3) Kelly is creating the lesson plan. (duration in minutes: 30, minutes left: 105)
-4) Kelly is creating materials for the lesson. (duration in minutes: 30, minutes left: 75)
-5) Kelly is taking a break. (duration in minutes: 15, minutes left: 60)
-6) Kelly is reviewing the lesson plan. (duration in minutes: 30, minutes left: 30)
-7) Kelly is making final changes to the lesson plan. (duration in minutes: 15, minutes left: 15)
-8) Kelly is printing the lesson plan. (duration in minutes: 10, minutes left: 5)
-9) Kelly is putting the lesson plan in her bag. (duration in minutes: 5, minutes left: 0)
+今天是5月10日，星期六。從08:00am ~09:00am，Kelly計劃吃早餐，從09:00am ~ 12:00pm，Kelly計劃制定第二天的幼兒園課程計劃，從12:00 ~ 13pm，Kelly計劃進行休息。
+請以間隔5分鐘列出Kelly從09:00am ~ 12:00pm制定第二天的幼兒園課程計劃時的子任務(總持續時間，分鐘：180)：
+1) Kelly在查閱幼兒園課程標準。 (持續時間，分鐘：15，剩餘分鐘：165)
+2) Kelly在為課程策劃想法。 (持續時間，分鐘：30，剩餘分鐘：135)
+3) Kelly在創建課程計劃。 (持續時間，分鐘：30，剩餘分鐘：105)
+4) Kelly在為課程製作材料。 (持續時間，分鐘：30，剩餘分鐘：75)
+5) Kelly在休息。 (持續時間，分鐘：15，剩餘分鐘：60)
+6) Kelly在回顧課程計劃。 (持續時間，分鐘：30，剩餘分鐘：30)
+7) Kelly在對課程計劃進行最後的修改。 (持續時間，分鐘：15，剩餘分鐘：15)
+8) Kelly在打印課程計劃。 (持續時間，分鐘：10，剩餘分鐘：5)
+9) Kelly在將課程計劃放入她的包中。 (持續時間，分鐘：5，剩餘分鐘：0)
 ---
 !<INPUT 0>!
 !<INPUT 1>!
-In 5 min increments, list the subtasks !<INPUT 2>! does when !<INPUT 3>! is !<INPUT 4>! from !<INPUT 5>! (total duration in minutes !<INPUT 6>!): 
-1) !<INPUT 7>! is
+在!<INPUT 5>!期間，以5分鐘為間隔，列出!<INPUT 2>!在!<INPUT 4>!時的子任務(總持續時間，分鐘!<INPUT 6>!)：
+1) !<INPUT 7>!在
